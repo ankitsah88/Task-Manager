@@ -2,6 +2,7 @@
 1. Add deletion of list
 2. bind to backend to save
 3. Refactor 
+4. Test case
 
 # Tech used
 1. JavaScript
