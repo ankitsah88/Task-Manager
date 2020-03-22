@@ -1,11 +1,22 @@
 # Task-Manager
 1. Add deletion of list
 2. bind to backend to save
+3. Refactor 
+
+# Tech used
+1. JavaScript
+2. HTML
+3. CSS 
+
+Uses webcomponent which is natively supported by browser.
+
 
 
 # How to use
 
-Just open index html and it should work out of the box.
+Just clone it and open index html and it should work out of the box.
+Don't change the directory structure else would not work.
+If in case you need to please update path of component in iinded.html
 
 
 dynamic only. has to be attached to backen to save it
