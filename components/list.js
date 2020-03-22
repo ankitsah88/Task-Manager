@@ -109,6 +109,7 @@ class List extends HTMLElement {
 
     addListItemSection(){
         var addContent = document.createElement('div');
+        addContent.className = "addListItem cursorPointer";
         addContent.innerHTML = "+ Add another item";
         addContent.onclick = this.onAddNewListItem;
         this.appendChild(addContent);

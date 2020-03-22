@@ -16,6 +16,7 @@ class ListItem extends HTMLElement {
         if(self.children.length===0){
         var mainContent = document.createElement('div');
         mainContent.setAttribute("draggable","true");
+        mainContent.className = "textContent";
         mainContent.ondragstart = function(ev){
             ev.dataTransfer.setData("list-item", self.id); 
         }
@@ -33,6 +34,7 @@ class ListItem extends HTMLElement {
         mainContent.appendChild(this.content);  
 
         var action = document.createElement('span');
+        action.classList = "deletebttn cursorPointer";
         action.innerHTML="<i class='fa fa-close'></i>";
         action.onclick= this.deleteSelf;
         mainContent.appendChild(action);  

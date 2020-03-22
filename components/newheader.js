@@ -51,6 +51,7 @@ class ListHeader extends HTMLElement {
     getNewHeader(){
         var div = document.createElement('div');
         div.innerHTML = "+ Add another list";
+        div.className = "cursorPointer";
         div.onclick = this.onAddNewItem;
         return div;
     }

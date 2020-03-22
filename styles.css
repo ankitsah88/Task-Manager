@@ -10,7 +10,7 @@ section {
   }
 
   ankit-list{
-    width: 200px;
+    position: relative;
     margin: 0 4px;
     height: 100%;
     box-sizing: border-box;
@@ -18,8 +18,24 @@ section {
     background-color: #ebecf0;
     border-radius: 3px;
   }
+  .deletebttn{
+    position: absolute;
+  }
+
+  .addListItem{
+    padding: 14px;
+  }
+
+  .textContent{
+    padding-left: 15px;
+  }
+
+  .cursorPointer{
+    cursor: pointer;
+  }
 
   .list-content{
+    width: 200px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -29,6 +45,7 @@ section {
   }
   list-header{
     text-align: center;
+    font-weight: bold;
   }
 
   textarea {
