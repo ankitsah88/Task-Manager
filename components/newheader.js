@@ -1,17 +1,9 @@
-// Create a class for the element
-class ListHeader extends HTMLElement {
-    // Specify observed attributes so that
-    // attributeChangedCallback will work
-    
+class ListHeader extends HTMLElement {   
     constructor() {
-      // Always call super first in constructor
       super();
       this.onAddNewItem = this.onAddNewItem.bind(this);
       this.onCancel = this.onCancel.bind(this);
       this.onSaveName = this.onSaveName.bind(this);
-      //var shadow = this.attachShadow({mode: 'open'});
-      //shadow.appendChild(this.getNewHeader());
-      
     }
 
     getInput(){
@@ -64,14 +56,7 @@ class ListHeader extends HTMLElement {
     connectedCallback() {
         this.appendChild(this.getNewHeader());
     }
-  
-    disconnectedCallback() {
-     
-    }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-     
-    }
   }
   
   customElements.define('new-list-header', ListHeader);

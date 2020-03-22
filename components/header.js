@@ -1,13 +1,9 @@
-// Create a class for the element
 class Header extends HTMLElement {
-    // Specify observed attributes so that
-    // attributeChangedCallback will work
     static get observedAttributes() {
         return ['title'];
       }
 
     constructor() {
-      // Always call super first in constructor
       super();
       this.onEditTitle = this.onEditTitle.bind(this);self
     }
@@ -27,10 +23,7 @@ class Header extends HTMLElement {
         }
         this.removeChild(this.children[0]);
         this.appendChild(input);
-
     }
-    
-
 
     getHeader(){
         var div = document.createElement('div');
@@ -43,14 +36,6 @@ class Header extends HTMLElement {
         if(this.children.length===0){
         this.appendChild(this.getHeader());
         }
-    }
-  
-    disconnectedCallback() {
-     
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-     
     }
   }
   

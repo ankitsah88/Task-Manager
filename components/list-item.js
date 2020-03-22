@@ -1,10 +1,6 @@
-// Create a class for the element
 class ListItem extends HTMLElement {
-    // Specify observed attributes so that
-    // attributeChangedCallback will work
-  
+    
     constructor() {
-      // Always call super first in constructor
       super();
       this.editContent = this.editContent.bind(this);
       this.readOnlyContent = this.readOnlyContent.bind(this);
@@ -57,14 +53,6 @@ class ListItem extends HTMLElement {
     
     setValue(sValue){
         this.content.value=sValue;
-    }
-
-    disconnectedCallback() {
-     
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-     
     }
   }
   

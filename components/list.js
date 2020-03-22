@@ -1,13 +1,9 @@
-// Create a class for the element
 class List extends HTMLElement {
-    // Specify observed attributes so that
-    // attributeChangedCallback will work
     static get observedAttributes() {
       return ['title', 'index'];
     }
   
     constructor() {
-      // Always call super first in constructor
       super();
       this.onAddNewListItem = this.onAddNewListItem.bind(this);
       this.dropList = this.dropList.bind(this);
@@ -37,7 +33,7 @@ class List extends HTMLElement {
 
       this.ondrop= function(ev){
         ev.preventDefault(); 
-        debugger;
+        
         if(ev.dataTransfer.getData("list-item")){
           this.dropItem(ev)
         }else if(ev.dataTransfer.getData("list")){
@@ -52,37 +48,42 @@ class List extends HTMLElement {
     }
   
     dropList(ev){
-      debugger;
-      var dropedItem = ev.dataTransfer.getData("list");
+      var dropedItemIndex = ev.dataTransfer.getData("list");
+      var dropedItem = document.getElementById(dropedItemIndex);
       var dropedAt = ev.target.closest("ankit-list");
 
       var lists = document.getElementById('lists');
-      var dropedIndex = this.getChildIndex(document.getElementById(dropedItem),lists);
+      var dropedIndex = this.getChildIndex(dropedItem,lists);
       var dropingIndex = this.getChildIndex(dropedAt,lists);
+
+      // decide wether to drop after or before
       if(dropedIndex<dropingIndex){
-      lists.insertBefore(document.getElementById(dropedItem),lists.children[dropingIndex+1]);
+      lists.insertBefore(dropedItem,lists.children[dropingIndex+1]);
       }else{
-      lists.insertBefore(document.getElementById(dropedItem),lists.children[dropingIndex]);
+      lists.insertBefore(dropedItem,lists.children[dropingIndex]);
       }
 
     }
 
     dropItem(ev){
-      debugger;
-      var dropedItem = ev.dataTransfer.getData("list-item");
+      var dropedItemIndex = ev.dataTransfer.getData("list-item");
+      var dropedItem = document.getElementById(dropedItemIndex);
       var dropedAt = ev.target.closest("list-item");
 
-      var dropedIndex = this.getChildIndex(document.getElementById(dropedItem),this.maincontent);
+      var dropedIndex = this.getChildIndex(dropedItem,this.maincontent);
       var dropingIndex = this.getChildIndex(dropedAt,this.maincontent);
 
       if(dropedIndex === -1){
-        this.maincontent.insertBefore(document.getElementById(dropedItem),this.maincontent.children[dropingIndex]);
+        //check if its drop on another list
+        this.maincontent.insertBefore(dropedItem,this.maincontent.children[dropingIndex]);
       }else{
+        // check if its not droped on same loc
       if(dropedItem!==dropedAt.id){
+        // decide wether to drop after or before
       if(dropedIndex<dropingIndex){
-      this.maincontent.insertBefore(document.getElementById(dropedItem),this.maincontent.children[dropingIndex+1]);
+      this.maincontent.insertBefore(dropedItem,this.maincontent.children[dropingIndex+1]);
       }else{
-        this.maincontent.insertBefore(document.getElementById(dropedItem),this.maincontent.children[dropingIndex]);
+        this.maincontent.insertBefore(dropedItem,this.maincontent.children[dropingIndex]);
       
       }
     }
@@ -114,14 +115,6 @@ class List extends HTMLElement {
         addContent.onclick = this.onAddNewListItem;
         this.appendChild(addContent);
 
-    }
-
-    disconnectedCallback() {
-     
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-     
     }
   }
   

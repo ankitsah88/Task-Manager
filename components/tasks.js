@@ -1,10 +1,6 @@
-// Create a class for the element
 class Task extends HTMLElement {
-    // Specify observed attributes so that
-    // attributeChangedCallback will work
-  
-    constructor() {
-      // Always call super first in constructor
+
+    constructor() { 
       super();
       this.addNewList = this.addNewList.bind(this);
       this.index =0;
@@ -34,14 +30,6 @@ class Task extends HTMLElement {
       oData.detail && oData.detail.title ? newList.setAttribute('title',oData.detail.title):"";
       var lists = document.getElementById('lists');
       lists.insertBefore(newList,lists.children[lists.children.length-1]);
-    }
-
-    disconnectedCallback() {
-     
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-     
     }
   }
   
