@@ -5,7 +5,7 @@ class Header extends HTMLElement {
 
     constructor() {
       super();
-      this.onEditTitle = this.onEditTitle.bind(this);self
+      this.onEditTitle = this.onEditTitle.bind(this);
     }
 
     onEditTitle(){
