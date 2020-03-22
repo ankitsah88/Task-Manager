@@ -7,6 +7,7 @@ class ListHeader extends HTMLElement {
     }
 
     getInput(){
+      // input place holder for list name
       var div = document.createElement('div');
       var input = document.createElement('input');
       input.id = "newItemInput";
@@ -30,6 +31,7 @@ class ListHeader extends HTMLElement {
     }
 
     onSaveName(){
+      // dispatch event on click of save and change back to original mode
         this.dispatchEvent(new CustomEvent('NewItem', { detail:{title: document.getElementById('newItemInput').value}}));
         this.removeChild(this.children[0]);
         this.appendChild(this.getNewHeader());
@@ -41,6 +43,7 @@ class ListHeader extends HTMLElement {
     }
 
     getNewHeader(){
+      // returns header div
         var div = document.createElement('div');
         div.innerHTML = "+ Add another list";
         div.className = "cursorPointer";

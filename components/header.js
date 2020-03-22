@@ -9,12 +9,15 @@ class Header extends HTMLElement {
     }
 
     onEditTitle(){
+      // change read only to edit mode when user clicks
         var self = this;
         self.edit = true;
         var input = document.createElement('input');
         input.id = "inputTitle";
         input.value = this.getAttribute('title');
+        
         input.onblur = function(){
+            // on focus out change back to readonly div
             let value = input.value ? input.value : self.getAttribute('title');
             self.setAttribute('title',value);
             self.edit = false;

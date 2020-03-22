@@ -7,9 +7,13 @@ class Task extends HTMLElement {
     }
   
     connectedCallback() {
-      var section = document.createElement('section');
-      section.id = "lists"
 
+      // main section which has all the lists 
+      var section = document.createElement('div');
+      section.id = "lists"
+      section.className = "section";
+
+      // the last column to add new list item
       var listHeader = document.createElement('new-list-header');
       listHeader.setAttribute('isNew','true');
       this.appendChild(section);

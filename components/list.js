@@ -13,10 +13,14 @@ class List extends HTMLElement {
   
     connectedCallback() {
       var self=this;
+      // drag and drop detaches it from window and again attaches so check so that its not called always
       if(self.children.length===0){
+
+      // create title for list  
       var header = document.createElement('list-header');
       header.setAttribute('title',this.getAttribute('title'));
 
+      // creation of main content in list
       this.maincontent = document.createElement('div');
       this.maincontent.className = "list-content";
       
@@ -25,7 +29,7 @@ class List extends HTMLElement {
       this.appendChild(this.maincontent);
       this.addListItemSection();
 
-      
+      // make list dragable
       this.setAttribute("draggable","true");
       this.ondragstart = function(ev){
           ev.dataTransfer.setData("list", self.id); 
@@ -48,6 +52,7 @@ class List extends HTMLElement {
     }
   
     dropList(ev){
+      // when list is droped
       var dropedItemIndex = ev.dataTransfer.getData("list");
       var dropedItem = document.getElementById(dropedItemIndex);
       var dropedAt = ev.target.closest("ankit-list");
@@ -66,6 +71,7 @@ class List extends HTMLElement {
     }
 
     dropItem(ev){
+      // when list item is droped 
       var dropedItemIndex = ev.dataTransfer.getData("list-item");
       var dropedItem = document.getElementById(dropedItemIndex);
       var dropedAt = ev.target.closest("list-item");
@@ -102,6 +108,7 @@ class List extends HTMLElement {
   };
 
     onAddNewListItem(){
+      // when new list item is added.
       var item = document.createElement('list-item');
       item.id = this.id + "_list-item_"+this.index;
       this.index++;
@@ -109,6 +116,7 @@ class List extends HTMLElement {
     }
 
     addListItemSection(){
+      // add new item in list
         var addContent = document.createElement('div');
         addContent.className = "addListItem cursorPointer";
         addContent.innerHTML = "+ Add another item";
