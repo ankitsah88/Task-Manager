@@ -25,6 +25,8 @@ class ListItem extends HTMLElement {
         this.content.className = "text-content";
         this.content.setAttribute("readonly","true");
         this.content.addEventListener('input', _autoResize, false);
+
+        // autosize height
         function _autoResize() { 
             this.style.height = 'auto';     
             this.style.height = this.scrollHeight + 'px'; 
