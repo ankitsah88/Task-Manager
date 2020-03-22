@@ -1,6 +1,9 @@
 # Task-Manager
+1. Add deletion of list
+2. bind to backend to save
 
-# To be added more
+
+# How to use
 
 Just open index html and it should work out of the box.
 
